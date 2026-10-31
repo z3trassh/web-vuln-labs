@@ -1,0 +1,12 @@
+# The labs contain fake "secret" constants that the exploits retrieve to prove
+# impact. They are not real credentials. Allowlist them so a CI secret scan
+# stays meaningful.
+[extend]
+useDefault = true
+
+[[rules]]
+id = "generic-api-key"
+[rules.allowlist]
+regexes = [
+  '''lab0\d-[a-z-]+''',
+]
